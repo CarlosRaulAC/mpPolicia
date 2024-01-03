@@ -1,142 +1,161 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MP | Subzona7 Loja</title>
-    <link rel="icon" href="/policia/vistas/recursos/dist/img/Policia.ico" type="image/ico">
 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/policia/vistas/recursos/plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="/policia/vistas/recursos/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="/policia/vistas/recursos/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="/policia/vistas/recursos/plugins/jqvmap/jqvmap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/policia/vistas/recursos/dist/css/adminlte.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="/policia/vistas/recursos/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="/policia/vistas/recursos/plugins/daterangepicker/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="/policia/vistas/recursos/plugins/summernote/summernote-bs4.min.css">
+  <title>MP | Subzona 7 Loja</title>
+
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="icon" href="vistas/img/plantilla/Policia.ico">
+
+   <!--=====================================
+  PLUGINS DE CSS
+  ======================================-->
+
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="vistas/bower_components/font-awesome/css/font-awesome.min.css">
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="vistas/bower_components/Ionicons/css/ionicons.min.css">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
+  
+  <!-- AdminLTE Skins -->
+  <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+   <!-- DataTables -->
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+
+  <!--=====================================
+  PLUGINS DE JAVASCRIPT
+  ======================================-->
+
+  <!-- jQuery 3 -->
+  <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
+  
+  <!-- Bootstrap 3.3.7 -->
+  <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- FastClick -->
+  <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
+  
+  <!-- AdminLTE App -->
+  <script src="vistas/dist/js/adminlte.min.js"></script>
+
+  <!-- DataTables -->
+  <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+
+  <!-- SweetAlert 2 -->
+  <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
+  <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
 </head>
 
-<body class="hold-transition sidebar-mini">
-    <!-- Site wrapper -->
-    <div class="wrapper">
-        <!-- Navbar -->
-        <?php include "shared/navbar.php"; ?>
-        <!-- /.navbar -->
+<!--=====================================
+CUERPO DOCUMENTO
+======================================-->
 
-        <!-- Main Sidebar Container -->
-        <?php include "shared/sidebar.php"; ?>
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
+ 
+  <?php
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Blank Page</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Blank Page</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div><!-- /.container-fluid -->
-            </section>
+  if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
-            <!-- Main content -->
-            <section class="content">
+   echo '<div class="wrapper">';
 
-                <!-- Default box -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Title</h3>
+    /*=============================================
+    CABEZOTE
+    =============================================*/
 
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        Start creating your amazing application!
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                        Footer
-                    </div>
-                    <!-- /.card-footer-->
-                </div>
-                <!-- /.card -->
+    include "modulos/cabezote.php";
 
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
+    /*=============================================
+    MENU
+    =============================================*/
 
-        <?php include "shared/footer.php"; ?>  
+    include "modulos/menu.php";
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
+    /*=============================================
+    CONTENIDO
+    =============================================*/
 
-    <!-- jQuery -->
-    <script src="/policia/vistas/recursos/plugins/jquery/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="/policia/vistas/recursos/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <!-- Bootstrap 4 -->
-    <script src="/policia/vistas/recursos/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
-    <script src="/policia/vistas/recursos/plugins/chart.js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="/policia/vistas/recursos/plugins/sparklines/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="/policia/vistas/recursos/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="/policia/vistas/recursos/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="/policia/vistas/recursos/plugins/jquery-knob/jquery.knob.min.js"></script>
-    <!-- daterangepicker -->
-    <script src="/policia/vistas/recursos/plugins/moment/moment.min.js"></script>
-    <script src="/policia/vistas/recursos/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="/policia/vistas/recursos/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="/policia/vistas/recursos/plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="/policia/vistas/recursos/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/policia/vistas/recursos/dist/js/adminlte.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/policia/vistas/recursos/dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="/policia/vistas/recursos/dist/js/pages/dashboard.js"></script>
+    if(isset($_GET["ruta"])){
 
-    </body>
+      if($_GET["ruta"] == "inicio" ||
+         $_GET["ruta"] == "provincias" ||
+         $_GET["ruta"] == "distritos" ||
+         $_GET["ruta"] == "cantones" ||
+         $_GET["ruta"] == "circuitos" ||
+         $_GET["ruta"] == "subcircuitos" ||
+         $_GET["ruta"] == "personal" ||
+         $_GET["ruta"] == "flota-vehicular" ||
+         $_GET["ruta"] == "personal-subcircuito" ||
+         $_GET["ruta"] == "vehiculo-subcircuito" ||
+         $_GET["ruta"] == "mantenimiento-vehicular" ||
+         $_GET["ruta"] == "parte-policial" ||
+         $_GET["ruta"] == "orden-trabajo" ||
+         $_GET["ruta"] == "rango-policial" ||
+         $_GET["ruta"] == "tipo-vehiculo" ||
+         $_GET["ruta"] == "tipo-mantenimiento" ||
+         $_GET["ruta"] == "usuarios" ||
+         $_GET["ruta"] == "reportes" ||
+         $_GET["ruta"] == "salir"){
 
+        include "modulos/".$_GET["ruta"].".php";
+
+      }else{
+
+        include "modulos/404.php";
+
+      }
+
+    }else{
+
+      include "modulos/inicio.php";
+
+    }
+
+    /*=============================================
+    FOOTER
+    =============================================*/
+
+    include "modulos/footer.php";
+
+    echo '</div>';
+
+  }else{
+
+    include "modulos/login.php";
+
+  }
+
+  ?>
+
+
+<script src="vistas/js/plantilla.js"></script>
+<script src="vistas/js/usuarios.js"></script>
+
+</body>
 </html>
